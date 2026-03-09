@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dark Mode Demo</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f2f2f2;
+color:#333;
+margin:0;
+padding:0;
+transition:0.3s;
+}
+
+.container{
+width:70%;
+margin:auto;
+padding:40px;
+}
+
+h1{
+font-size:50px;
+text-align:center;
+}
+
+p{
+line-height:1.6;
+font-size:18px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin:20px 0;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+button{
+position:fixed;
+top:20px;
+right:20px;
+padding:10px 20px;
+border:none;
+background:black;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.dark{
+background:#111;
+color:white;
+}
+
+.dark .card{
+background:#1e1e1e;
+}
+
+</style>
+</head>
+
+<body>
+
+<button onclick="toggleMode()">Toggle Dark Mode</button>
+
+<div class="container">
+
+<h1>Welcome to the demo</h1>
+
+<p style="text-align:center;">
+This page shows how a simple dark mode toggle can transform the reading experience.
+Use the button in the top-right to switch themes.
+</p>
+
+<h2>Why dark mode?</h2>
+
+<p>
+Many people prefer a dark background in low light or at night. It can reduce eye strain and save energy on OLED screens.
+</p>
+
+<div class="card">
+<h3>Reduced eye strain</h3>
+<p>Softer contrast in dim environments can make long reading sessions more comfortable.</p>
+</div>
+
+<div class="card">
+<h3>Better for OLED</h3>
+<p>True black pixels stay off, which can extend battery life on phones and laptops.</p>
+</div>
+
+<div class="card">
+<h3>Your preference, saved</h3>
+<p>The theme you choose will stay even after refreshing the page.</p>
+</div>
+
+</div>
+
+<script>
+
+function toggleMode(){
+
+document.body.classList.toggle("dark")
+
+if(document.body.classList.contains("dark")){
+localStorage.setItem("theme","dark")
+}else{
+localStorage.setItem("theme","light")
+}
+
+}
+
+// load saved theme
+
+if(localStorage.getItem("theme") === "dark"){
+document.body.classList.add("dark")
+}
+
+</script>
+
+</body>
+</html>
